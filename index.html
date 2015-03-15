@@ -1,0 +1,70 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, minimum scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <style>template {display: none !important;} /* injected by platform.js */</style><style>body {transition: opacity ease-in 0.2s; }
+body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; }
+</style>
+    <!-- START Project Polymer Linking -->
+    <script src="../bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <link rel="import" href="../bower_components/font-roboto/roboto.html">
+    <link rel="import" href="../bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="../bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="../bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import"
+    href="../bower_components/core-icons/core-icons.html">
+    <link rel="import"
+    href="../bower_components/core-icon/core-icon.html">
+    <link rel="import"
+    href="../bower_components/core-icons/core-icons.html">
+    <link rel="import"
+    href="../bower_components/paper-icon-button/paper-icon-button.html">
+    <link rel="import" href="../bower_components/paper-fab/paper-fab.html">
+    <link rel="import" href="../bower_components/core-list/core-list.html">
+
+    <link rel="import" href="../bower_components/core-list/core-list.html">
+    <link rel="import" href="../bower_components/core-image/core-image.html">
+    <link rel="import" href="../bower_components/core-item/core-item.html">
+    <!-- START CUSTOM ELEMENTS -->
+
+    <!-- END CUSTOM ELEMENTS -->
+    <link rel="import" href="../elements/contact-item.html">
+    <!-- END Project Polymer Linking -->
+    <!-- START CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- END CSS -->
+    <!-- START Javascript -->
+    <!-- <script type="text/javascript" src="/js/poly-script.js"></script> -->
+    <!-- END Javascript -->
+
+  </head>
+  <body unresolved>
+
+    <core-header-panel>
+      <core-toolbar class="medium-tall">
+        <paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+        <span flex>TITLE for TOP</span>
+        <paper-icon-button id="searchbutton" icon="search"></paper-icon-button>
+        <paper-icon-button id="morebutton" icon="more-vert"></paper-icon-button>
+        <paper-fab icon="add"></paper-fab>
+        <paper-tabs class="bottom fit" id="tabs" selected="people" self-end>
+          <paper-tab name="people">TITLE</paper-tab>
+          <paper-tab name="units">TITLE</paper-tab>
+        </paper-tabs>
+      </core-toolbar>
+
+      <contact-item></contact-item>
+
+    </core-header-panel>
+    <script>
+    var tabs = document.querySelector('paper-tabs');
+    tabs.addEventListener('core-select', function() {
+      console.log("Selected: " + tabs.selected);
+    });
+
+
+  </script>
+  </body>
+</html>

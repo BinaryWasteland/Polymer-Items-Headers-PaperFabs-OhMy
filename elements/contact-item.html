@@ -1,0 +1,49 @@
+<link rel="import"
+  href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-ajax/core-ajax.html">
+
+<polymer-element name="contact-item" attributes="people">
+  <template>
+    <core-ajax auto url="../json/contactdata.json" handleAs="json" response="{{response}}"></core-ajax>
+    <style>
+    :host {
+      display: block;
+      position: relative;
+      background-color: white;
+      width: 100%;
+    }
+    core-item.contact-item {
+      width: 100%;
+      height: 50;
+      background-color: #efefef;
+      border: 1px solid #ddd;
+    }
+    </style>
+    <template repeat="{{response}}" id="base">
+    <core-item icon="account-circle" class="contact-item" horizontal="" center="" layout="">
+      <div flex="">
+        <div class="name">{{first}}&nbsp;{{last}}</div>
+        <div class="email">{{email}}</div>
+      </div>
+      <div flex="">
+        <div class="role">{{role}}</div>
+      </div>
+      <div flex="">
+        <!-- <template ref="base" repeat="{{address}}"> -->
+          <div class="addy">City: {{address.city}} State: {{address.province}} Street: {{address.line1}} Zip: {{address.postal}}</div>
+        <!-- </template> -->
+
+      </div>
+      <core-icon icon="more-vert" aria-label="more-vert" role="img"><svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></g></svg></core-icon>
+    </core-item>
+    </template>
+  </template>
+  <script>
+    Polymer('contact-item',{
+       responseChanged: function(e) {
+         var people = this.response;
+         console.log(people);
+       }
+     });
+  </script>
+</polymer-element>
